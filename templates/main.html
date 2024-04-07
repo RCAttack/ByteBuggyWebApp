@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="Initialize">
+    <div>
+        <button onclick="setupSSH()" style="display: inline;">Setup SSH Connection</button>
+        <h3 class="green-text" style="display: inline;">SSH Connection Established</h3>
+    </div>
+
+    <br>
+
+    <button onclick="initializeAdapter()">Initialize Adapter</button>
+    <div>
+        <button onclick="scanWifi()">Scan for Wi-Fi Networks</button>
+        <select id="network-select">
+            <option>Select Network</option>
+        </select>
+    </div>
+</section>
+
+<section class="log">
+    <h2>Log</h2>
+    <textarea id="log" readonly>Welcome to the Byte Buggy web interface.</textarea>
+</section>
+
+
+
+<section class="attack">
+    <br>
+    <button onclick="startPasswordCrack()">Start Password Crack</button>
+    <div>Time of completion: <span id="completion-time">00:00</span></div>
+    <div>Password found: <span id="password-found">N/A</span></div>
+</section>
+{% endblock %}
