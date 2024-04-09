@@ -20,19 +20,19 @@
         </select>
     </div>
 
-</section>
+    <br>
+
+    <section class="attack">
+        <button onclick="startPasswordCrack()">Start Password Crack</button>
+        <div>Time of completion: <span id="completion-time">00:00</span></div>
+        <div>Password found: <span id="password-found">N/A</span></div>
+    </section>
 
 <section class="log">
     <h2>Log</h2>
     <textarea id="log" readonly>Welcome to the Byte Buggy web interface.</textarea>
 </section>
 
-
-
-<section class="attack">
-    <br>
-    <button onclick="startPasswordCrack()">Start Password Crack</button>
-    <div>Time of completion: <span id="completion-time">00:00</span></div>
-    <div>Password found: <span id="password-found">N/A</span></div>
 </section>
 {% endblock %}
+
