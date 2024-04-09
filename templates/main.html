@@ -2,19 +2,24 @@
 {% block content %}
 <section class="Initialize">
     <div>
-        <button onclick="setupSSH()" style="display: inline;">Setup SSH Connection</button>
-        <h3 class="green-text" style="display: inline;">SSH Connection Established</h3>
+        <button onclick="setupSSH()" style="display: inline;";>Setup SSH Connection</button>
+        <h3 style="display: inline; margin-left: 50px; font-size: 14px; color: grey;">SSH connection not established</h3>
     </div>
 
     <br>
 
     <button onclick="initializeAdapter()">Initialize Adapter</button>
+
+    <br>
+    <br>
+
     <div>
         <button onclick="scanWifi()">Scan for Wi-Fi Networks</button>
         <select id="network-select">
             <option>Select Network</option>
         </select>
     </div>
+
 </section>
 
 <section class="log">
