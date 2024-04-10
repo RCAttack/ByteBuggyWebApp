@@ -31,4 +31,11 @@
     <textarea id="log" readonly>Welcome to the Byte Buggy web interface.</textarea>
 </section>
 
+
+
 </section>
+
+ document.getElementById("button3").onclick = function() {
+        document.getElementById("button4").classList.remove("button-transparent");
+        document.getElementById("button4").classList.add("button-regular");
+    };

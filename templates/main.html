@@ -29,16 +29,17 @@
     <br>
 
     <div>
-        <button onclick="scanWifi()" style = "border-radius: 5px;">Scan for Wi-Fi Networks</button>
-        <select id="network-select">
+        <button id="button3" class ="button-transparent" onclick="scanWifi()" style = "border-radius: 5px;">Scan for Wi-Fi Networks</button>
+        <select id="network-select" class ="button-transparent">
             <option>Select Network</option>
+            <option>sample network option</option>
         </select>
     </div>
 
     <br>
 
     <section class="attack">
-        <button onclick="startPasswordCrack()" style = "border-radius: 5px;">Start Password Crack</button>
+        <button id="button4" class ="button-transparent" onclick="startPasswordCrack()" style = "border-radius: 5px;">Start Password Crack</button>
         <div>Time of completion: <span id="completion-time">00:00</span></div>
         <div>Password found: <span id="password-found">N/A</span></div>
     </section>
@@ -55,10 +56,26 @@
 </div>
 
 <script>
+
+    <!--Transparent functionality-->
     document.getElementById("button1").onclick = function() {
         document.getElementById("button2").classList.remove("button-transparent");
         document.getElementById("button2").classList.add("button-regular");
     };
+
+    document.getElementById("button2").onclick = function() {
+        document.getElementById("button3").classList.remove("button-transparent");
+        document.getElementById("button3").classList.add("button-regular");
+        document.getElementById("network-select").classList.remove("button-transparent");
+        document.getElementById("network-select").classList.add("button-regular");
+    };
+
+    document.getElementById("network-select").onchange = function() {
+        document.getElementById("button4").classList.remove("button-transparent");
+        document.getElementById("button4").classList.add("button-regular");
+    };
+
+   
 </script>
 
 {% endblock %}
