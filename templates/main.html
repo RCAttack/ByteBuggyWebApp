@@ -1,16 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 
+    
+<style>
+    .button-regular {
+        opacity: 1;
+    }
+    .button-transparent {
+        opacity: 0.5;
+    }
+</style>
+
 <div style="display: flex;">
 <section class="Action" style="flex: 1; margin-right: 100px;">
     <div style="display: flex; align-items: center; justify-content: space-between;">
-        <button onclick="setupSSH()" style="border-radius: 5px;">Setup SSH Connection</button>
+        <button id="button1" class ="button-regular" onclick="setupSSH()" style="border-radius: 5px;">Setup SSH Connection</button>
         <h3 style="margin-left: 20px; font-size: 14px; color: grey;">SSH connection not established</h3>
     </div>
 
     <br>
 
-    <button onclick="initializeAdapter()" style="border-radius: 5px;">Initialize Adapter</button>
+    <button id="button2" class ="button-transparent" onclick="initializeAdapter()" style="border-radius: 5px;">Initialize Adapter</button>
 
     <br> 
     
@@ -41,6 +51,15 @@
     <h2>Log</h2>
     <textarea id="log" readonly style = "width: 220%; height: 120%;">Welcome to the Byte Buggy web interface.</textarea>
 </section>
+
 </div>
+
+<script>
+    document.getElementById("button1").onclick = function() {
+        document.getElementById("button2").classList.remove("button-transparent");
+        document.getElementById("button2").classList.add("button-regular");
+    };
+</script>
+
 {% endblock %}
 
