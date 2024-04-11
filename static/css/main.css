@@ -45,6 +45,7 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    margin-bottom: 100px;
 }
 
 /* Style the control panel area */
@@ -102,11 +103,13 @@ main {
 
 /* Style the footer */
 footer {
-    background-color: #333;
+    background-color: #222222;
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: absolute;
+    position: fixed;
+    margin-top: 100px;
     bottom: 0;
     width: 100%;
+    opacity: 0;
 }

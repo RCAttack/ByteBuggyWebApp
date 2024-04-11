@@ -11,11 +11,13 @@
     }
 </style>
 
+    
+
 <div style="display: flex;">
 <section class="Action" style="flex: 1; margin-right: 100px;">
     <div style="display: flex; align-items: center; justify-content: space-between;">
         <button id="button1" class ="button-regular" onclick="setupSSH()" style="border-radius: 5px;">Setup SSH Connection</button>
-        <h3 style="margin-left: 20px; font-size: 14px; color: grey;">SSH connection not established</h3>
+        <h3 id = "label1" style="margin-left: 20px; font-size: 14px; color: grey;">SSH connection not established</h3>
     </div>
 
     <br>
@@ -44,35 +46,81 @@
         <div>Password found: <span id="password-found">N/A</span></div>
     </section>
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <button id="cls" class ="button-regular" onclick="cls()" style = "border-radius: 5px;">Clear Screen</button>
 
 
 </section>
 
 <section class="log" style="flex: 1;">
     <h2>Log</h2>
-    <textarea id="log" readonly style = "width: 220%; height: 120%;">Welcome to the Byte Buggy web interface.</textarea>
+    <textarea id="log" readonly style = "width: 220%; height: 100%;">Welcome to the Byte Buggy web interface.</textarea>
+
 </section>
+
+
 
 </div>
 
 <script>
 
     <!--Transparent functionality-->
+
+    window.onload = function() {
+    var buttons = document.querySelectorAll('.button-transparent');
+    buttons.forEach(function(button) {
+        button.disabled = true; // Disable the button
+       }); 
+    };
+
+
     document.getElementById("button1").onclick = function() {
         document.getElementById("button2").classList.remove("button-transparent");
         document.getElementById("button2").classList.add("button-regular");
+        button2.disabled = false;
+        document.getElementById("log").value += "\n\nSSH Connection initiated.";
+        document.getElementById("label1").style.color = 'Green'
+        document.getElementById("label1").textContent = "SSH connection established";
     };
 
     document.getElementById("button2").onclick = function() {
         document.getElementById("button3").classList.remove("button-transparent");
         document.getElementById("button3").classList.add("button-regular");
+        
         document.getElementById("network-select").classList.remove("button-transparent");
         document.getElementById("network-select").classList.add("button-regular");
+        document.getElementById("log").value += "\n\nAdapter initialization started.";
+        button3.disabled = false;
+    };
+
+    document.getElementById("button3").onclick = function() {
+        document.getElementById("log").value += "\n\nScanned for networks.";
+        document.getElementById("network-select").disabled = false;
+        
     };
 
     document.getElementById("network-select").onchange = function() {
         document.getElementById("button4").classList.remove("button-transparent");
         document.getElementById("button4").classList.add("button-regular");
+        let selectedNetwork = document.getElementById("network-select").value;
+        document.getElementById("log").value += "\n\nNetwork selected: " + selectedNetwork;
+        button4.disabled = false;
+    };
+
+    document.getElementById("button4").onclick = function() {
+        document.getElementById("log").value += "\n\nPassword cracking initiated.";
+    };
+
+    document.getElementById("cls").onclick = function() {
+        document.getElementById("log").value = ""; 
     };
 
    
