@@ -16,13 +16,11 @@
 <div style="display: flex;">
 <section class="Action" style="flex: 1; margin-right: 100px;">
     <div style="display: flex; align-items: center; justify-content: space-between;">
-        <button id="button1" class ="button-regular" onclick="setupSSH()" style="border-radius: 5px;">Setup SSH Connection</button>
-        <h3 id = "label1" style="margin-left: 20px; font-size: 14px; color: grey;">SSH connection not established</h3>
     </div>
 
     <br>
 
-    <button id="button2" class ="button-transparent" onclick="initializeAdapter()" style="border-radius: 5px;">Initialize Adapter</button>
+    <button id="button2" class ="button-regular" onclick="initializeAdapter()" style="border-radius: 5px;">Initialize Adapter</button>
 
     <br> 
     
@@ -82,14 +80,7 @@
     };
 
 
-    document.getElementById("button1").onclick = function() {
-        document.getElementById("button2").classList.remove("button-transparent");
-        document.getElementById("button2").classList.add("button-regular");
-        button2.disabled = false;
-        document.getElementById("log").value += "\n\nSSH Connection initiated.";
-        document.getElementById("label1").style.color = 'Green'
-        document.getElementById("label1").textContent = "SSH connection established";
-    };
+   
 
     document.getElementById("button2").onclick = function() {
         document.getElementById("button3").classList.remove("button-transparent");
@@ -127,4 +118,3 @@
 </script>
 
 {% endblock %}
-
