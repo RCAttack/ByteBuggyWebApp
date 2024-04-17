@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Help Page</title>
+    </head>
+    <body>
+        <pre>{{ help_content }}</pre>
+
+
+        <button onclick="runCommand()">Run Command</button>
+        <pre id="output"></pre>
+        
+
+    <script>
+
+        function runCommand() {
+            fetch('/run-command', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('output').textContent = 'Error: ' + data.error;
+                    } else {
+                        document.getElementById('output').textContent = data.output;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('output').textContent = 'Error: ' + error.message;
+                });
+        }
+
+    </script>
+    </body>
+    </html>
+
+{% endblock %}
