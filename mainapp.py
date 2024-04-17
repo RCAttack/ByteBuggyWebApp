@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -25,9 +25,11 @@ def help():
 
 @app.route('/run-command', methods=['POST'])
 def run_command():
+    import subprocess
+    
     # Running a command and capturing its output
     try:
-        result = subprocess.run(['ls', '-l'], capture_output=True, text=True)
+        result = subprocess.run(['ping', '8.8.8.8'], capture_output=True, text=True)
         # Sending the command output back as JSON
         return jsonify({'output': result.stdout}), 200
     except Exception as e:
